@@ -20,7 +20,7 @@ curl --version
 
 ---
 
-## Step 1 — Install Neovim 0.12+
+## Step 1 — Install Neovim 0.12+ and ripgrep
 
 The distro package is usually too old. Install the latest stable release from GitHub into `~/.local`:
 
@@ -29,6 +29,16 @@ curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x8
 tar -C ~/.local -xzf nvim-linux-x86_64.tar.gz
 ln -sf ~/.local/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
 rm nvim-linux-x86_64.tar.gz
+```
+
+Also install **ripgrep** — required by Telescope's live grep (`<leader>fg`):
+
+```bash
+RG_VERSION=$(curl -s https://api.github.com/repos/BurntSushi/ripgrep/releases/latest | grep -o '"tag_name": "[^"]*"' | cut -d'"' -f4)
+curl -LO "https://github.com/BurntSushi/ripgrep/releases/download/${RG_VERSION}/ripgrep-${RG_VERSION}-x86_64-unknown-linux-musl.tar.gz"
+tar -xzf "ripgrep-${RG_VERSION}-x86_64-unknown-linux-musl.tar.gz"
+cp "ripgrep-${RG_VERSION}-x86_64-unknown-linux-musl/rg" ~/.local/bin/rg
+rm -rf "ripgrep-${RG_VERSION}-x86_64-unknown-linux-musl"*
 ```
 
 Add `~/.local/bin` to your PATH permanently:
