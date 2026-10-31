@@ -394,6 +394,108 @@ On first open, treesitter will compile parsers in the background (you may see pr
 
 ---
 
+## Using the editor
+
+### Modes
+
+Neovim is modal — the same keys do different things depending on the mode you're in.
+
+| Mode | How to enter | What it's for |
+|------|-------------|---------------|
+| **Normal** | `Esc` (default on start) | Moving around, running commands |
+| **Insert** | `i` | Typing text |
+| **Visual** | `v` | Selecting text |
+| **Visual line** | `V` | Selecting whole lines |
+| **Command** | `:` | Running editor commands |
+
+When in doubt, press `Esc` to get back to Normal mode.
+
+### Saving and quitting
+
+These are typed in Normal mode after pressing `:`:
+
+| Command | Action |
+|---------|--------|
+| `:w` | Save |
+| `:q` | Quit |
+| `:wq` | Save and quit |
+| `:q!` | Quit without saving |
+| `:wa` | Save all open files |
+
+### Moving around
+
+| Key | Action |
+|-----|--------|
+| `h j k l` | Left / down / up / right |
+| `w` | Jump forward one word |
+| `b` | Jump backward one word |
+| `0` | Start of line |
+| `$` | End of line |
+| `gg` | Top of file |
+| `G` | Bottom of file |
+| `Ctrl-d` | Scroll half page down |
+| `Ctrl-u` | Scroll half page up |
+| `/{term}` | Search forward |
+| `n` / `N` | Next / previous match |
+
+### Editing
+
+| Key | Action |
+|-----|--------|
+| `i` | Insert before cursor |
+| `a` | Insert after cursor |
+| `o` | New line below |
+| `O` | New line above |
+| `dd` | Delete line |
+| `yy` | Copy line |
+| `p` | Paste below |
+| `u` | Undo |
+| `Ctrl-r` | Redo |
+| `ci"` | Change inside quotes |
+| `ci(` | Change inside parentheses |
+| `=G` | Auto-indent from cursor to end |
+
+### Working with files and splits
+
+| Key | Action |
+|-----|--------|
+| `<leader>e` | Toggle file explorer |
+| `<leader>ff` | Find file by name |
+| `<leader>fg` | Search text across all files |
+| `<leader>fb` | Switch between open buffers |
+| `:vsp` | Split window vertically |
+| `:sp` | Split window horizontally |
+| `Ctrl-w h/l` | Move between splits (left/right) |
+| `Ctrl-w j/k` | Move between splits (down/up) |
+
+### TypeScript workflow
+
+Open a `.ts` or `.tsx` file and within a couple of seconds the LSP attaches. Then:
+
+| Key | Action |
+|-----|--------|
+| `K` | Show type / docs under cursor |
+| `gd` | Go to definition |
+| `gr` | Show all references |
+| `<leader>rn` | Rename symbol across the project |
+| `<leader>ca` | Code action (fix, import, refactor) |
+| `<leader>f` | Format the file |
+| `[d` / `]d` | Jump to prev / next error |
+| `<leader>xx` | Open full diagnostics panel |
+
+ESLint errors show as red underlines and are **auto-fixed on save**.
+
+Completion triggers automatically as you type — `Tab` to pick, `Enter` to confirm, `Ctrl-e` to dismiss.
+
+### Tips
+
+- Press `<Space>` and wait — **which-key** pops up and shows every available keybinding from that prefix.
+- `:Mason` opens the LSP server manager UI — useful to install more servers later.
+- `:Lazy` opens the plugin manager UI.
+- `:checkhealth` runs a built-in diagnostic of your whole setup.
+
+---
+
 ## Updating
 
 - **Plugins:** `:Lazy update` inside Neovim
