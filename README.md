@@ -31,6 +31,12 @@ ln -sf ~/.local/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
 rm nvim-linux-x86_64.tar.gz
 ```
 
+Also install **gcc** — required by tree-sitter to compile parsers (this one needs sudo):
+
+```bash
+sudo apt-get install -y gcc
+```
+
 Also install **tree-sitter CLI** — required by nvim-treesitter to compile parsers:
 
 ```bash
