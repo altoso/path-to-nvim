@@ -31,6 +31,16 @@ ln -sf ~/.local/nvim-linux-x86_64/bin/nvim ~/.local/bin/nvim
 rm nvim-linux-x86_64.tar.gz
 ```
 
+Also install **tree-sitter CLI** — required by nvim-treesitter to compile parsers:
+
+```bash
+TS_VERSION=$(curl -s https://api.github.com/repos/tree-sitter/tree-sitter/releases/latest | grep -o '"tag_name": "[^"]*"' | cut -d'"' -f4)
+curl -L "https://github.com/tree-sitter/tree-sitter/releases/download/${TS_VERSION}/tree-sitter-linux-x64.gz" -o tree-sitter.gz
+gunzip tree-sitter.gz
+chmod +x tree-sitter
+mv tree-sitter ~/.local/bin/tree-sitter
+```
+
 Also install **ripgrep** — required by Telescope's live grep (`<leader>fg`):
 
 ```bash
